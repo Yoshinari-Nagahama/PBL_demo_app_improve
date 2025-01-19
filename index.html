@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デジタル化に関するアンケート</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'yes-blue': '#3B82F6',
+                        'no-red': '#EF4444',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+        }
+        .answer-btn {
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .answer-btn:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+        .answer-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">デジタル化に関するアンケート</h1>
+            <p class="text-gray-600 text-lg">あなたのデジタル化に対する意見をお聞かせください</p>
+        </div>
+
+        <!-- 開始画面 -->
+        <div id="start-screen" class="text-center">
+            <button id="start-button" class="btn-primary bg-yes-blue text-white font-bold py-4 px-8 rounded-full text-xl hover:bg-blue-600">
+                アンケートを開始する
+            </button>
+        </div>
+
+        <!-- アンケート画面（初期状態は非表示） -->
+        <div id="survey-screen" class="hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <p class="text-gray-800 text-lg font-medium mb-6 text-center">
+                    デジタルの導入に対して肯定的ならYesを、否定的ならNoを押してください
+                </p>
+                <div id="questions" class="space-y-8">
+                    <!-- 質問はJavaScriptで動的に追加されます -->
+                </div>
+            </div>
+
+            <!-- 結果ボタン（初期状態は非表示） -->
+            <div id="result-buttons" class="hidden mt-8 flex justify-center space-x-4">
+                <button id="compare-button" class="btn-primary bg-yes-blue text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600">
+                    他人と比較する
+                </button>
+                <button id="trend-button" class="btn-primary bg-yes-blue text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600">
+                    全体の回答傾向を見る
+                </button>
+            </div>
+        </div>
+
+        <!-- 比較結果画面 -->
+        <div id="comparison-screen" class="hidden">
+            <!-- 比較結果はJavaScriptで動的に追加されます -->
+        </div>
+
+        <!-- 全体傾向画面 -->
+        <div id="trend-screen" class="hidden">
+            <!-- 全体傾向はJavaScriptで動的に追加されます -->
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
